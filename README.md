@@ -191,3 +191,19 @@ realtime_gpu_fan_rpm_address = 0xca
 ```
 sudo systemctl enable --now isw@16Q4EMS1.service
 ```
+
+# sddm
+```
+sudo mkdir /etc/sddm.conf.d/
+sudo nano /etc/sddm.conf.d/10-wayland.conf
+```
+---
+```
+[General]
+DisplayServer=wayland
+GreeterEnvironment=QT_WAYLAND_SHELL_INTEGRATION=layer-shell
+
+[Wayland]
+CompositorCommand=kwin_wayland --drm --no-lockscreen --no-global-shortcuts --locale1
+```
+---
