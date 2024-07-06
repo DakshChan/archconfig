@@ -9,15 +9,18 @@ sudo pacman -S nvidia-dkms nvidia-utils nvidia-settings
 ```
 
 ## set nvidia drm
+```
+sudo nano sudo nano /boot/loader/entries/*_linux.conf
+```
+add `nvidia_drm.modeset=1 nvidia_drm.fbdev=1` to options line
 
+## nvidia power management
 ```
 sudo mkdir /etc/modprobe.d/
 sudo nano /etc/modprobe.d/nvidia.conf
 ```
 ---
 ```
-options nvidia_drm modeset=1
-options nvidia_drm fbdev=1
 options nvidia NVreg_DynamicPowerManagement=0x02
 ```
 ---
